@@ -33,9 +33,9 @@ function updateUI() {
     pChild.classList.add("ls-favourite");
     pChild.textContent = el;
 
-    let editButton = document.createElement("button");
-    editButton.classList.add("btn", "btn-edit");
-    editButton.textContent = "Edit";
+    let copyButton = document.createElement("button");
+    copyButton.classList.add("btn", "btn-copy");
+    copyButton.textContent = "Copy to Clipboard";
 
     let deleteButton = document.createElement("button");
     deleteButton.classList.add("btn", "btn-delete");
@@ -43,7 +43,7 @@ function updateUI() {
 
     let li1 = content1.appendChild(divParent).appendChild(pChild);
     li1.insertAdjacentElement("afterend", deleteButton);
-    li1.insertAdjacentElement("afterend", editButton);
+    li1.insertAdjacentElement("afterend", copyButton);
   });
   document.getElementById("link-box").value = "";
 }
