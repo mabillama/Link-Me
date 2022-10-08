@@ -21,7 +21,14 @@
         <div class="paste-box">
           <div class="paste-box-content">
             <label for="link-box">Paste it!</label>
-            <input type="url" id="link-box" />
+            <input
+              type="url"
+              id="link-box"
+              placeholder="https://example.com"
+              pattern="https://.*"
+              minlength="14"
+              required
+            />
             <button class="btn" id="hello">Save it!</button>
           </div>
         </div>
