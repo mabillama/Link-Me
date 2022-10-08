@@ -21,6 +21,8 @@
 
 function clicked() {
   console.log("clicked!");
+  window.localStorage.setItem("name", "suzan");
+  updateUI();
 }
 
 const button = document.getElementById("hello");
@@ -28,4 +30,17 @@ button.addEventListener("click", clicked);
 
 if (typeof Storage != undefined) {
   console.log("It stores!");
+}
+
+function updateUI() {
+  let values = [];
+  let keys = Object.keys(localStorage);
+  let i = keys.length;
+
+  while (i--) {
+    values.push(localStorage.getItem(keys[i]));
+  }
+
+  console.log(values);
+  document.getElementById("ls-content").textContent = values[1];
 }
