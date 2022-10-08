@@ -29,12 +29,23 @@ function updateUI() {
   let keys = Object.keys(localStorage);
   let i = keys.length;
 
+  document.getElementById("ls-content").textContent = "";
+
   while (i--) {
     values.push(localStorage.getItem(keys[i]));
   }
 
-  console.log(values);
-  document.getElementById("ls-content").textContent = values;
+  // Experimental
+
+  values.forEach((el) => {
+    let content1 = document.getElementById("ls-content");
+
+    // const fragment = document.createDocumentFragment();
+    let li1 = content1.appendChild(document.createElement("p"));
+    li1.textContent = el;
+    console.log(li1);
+    console.log(el);
+  });
 }
 
 function updateUIreload() {
@@ -59,7 +70,9 @@ Button functions
   - CHECK it needs to get the input field to put to localStorage
   - CHECK it needs to generate a random key *using date* @todo develop to use uuid
   - it needs to add to localStorage with a link
-  - validation for links
+  
+  - validation for links:
+    - can't be empty
 */
 function clicked() {
   // console.log("clicked!");
@@ -67,7 +80,7 @@ function clicked() {
     generateKey(),
     document.getElementById("link-box").value
   );
-  updateUIreload();
+  updateUI();
 }
 
 function generateKey() {
