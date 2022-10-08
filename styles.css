@@ -19,6 +19,10 @@ header {
   justify-content: center;
 }
 
+h2 {
+  margin-bottom: 5px;
+}
+
 .container {
   height: 800px;
   display: flex;
@@ -44,11 +48,16 @@ header {
 }
 
 .ls-display {
-  background-color: #eee;
+  background-color: #aaa;
   flex-direction: column;
+  justify-content: start;
 }
 /* .paste-box-content {
 } */
+
+.ls-row {
+  margin-bottom: 0.5rem;
+}
 
 label {
   font-weight: bold;
@@ -73,10 +82,20 @@ input:focus {
 
 .btn {
   padding: 8px;
+  margin-right: 4px;
   border-radius: 5px;
   font-weight: bold;
   /* background-color: darkblue; */
   /* color: white; */
   border: none;
   cursor: pointer;
+}
+
+p.ls-favourite {
+  display: inline-block;
+  background: #ddd;
+  font-weight: 400;
+  height: 1.5rem;
+  width: 20rem;
+  margin-right: 0.5rem;
 }

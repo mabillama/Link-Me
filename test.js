@@ -19,14 +19,31 @@ function updateUI() {
 
   // Experimental
 
+  // make a div + p + 2 buttons and append
+
+  // build interface structure
+
   values.forEach((el) => {
     let content1 = document.getElementById("ls-content");
 
-    // const fragment = document.createDocumentFragment();
-    let li1 = content1.appendChild(document.createElement("p"));
-    li1.textContent = el;
-    // console.log(li1);
-    // console.log(el);
+    let divParent = document.createElement("div");
+    divParent.classList.add("ls-row");
+
+    let pChild = document.createElement("p");
+    pChild.classList.add("ls-favourite");
+    pChild.textContent = el;
+
+    let editButton = document.createElement("button");
+    editButton.classList.add("btn", "btn-edit");
+    editButton.textContent = "Edit";
+
+    let deleteButton = document.createElement("button");
+    deleteButton.classList.add("btn", "btn-delete");
+    deleteButton.textContent = "Delete";
+
+    let li1 = content1.appendChild(divParent).appendChild(pChild);
+    li1.insertAdjacentElement("afterend", deleteButton);
+    li1.insertAdjacentElement("afterend", editButton);
   });
   document.getElementById("link-box").value = "";
 }
