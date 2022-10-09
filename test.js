@@ -24,26 +24,38 @@ function updateUI() {
   // build interface structure
 
   values.forEach((el) => {
-    let content1 = document.getElementById("ls-content");
+    /**
+     * Create a function to organize this part of the code
+     * as it is only useful to build the UI and it only needs one
+     * parameter.
+     * @TODO transform into function
+     */
 
-    let divParent = document.createElement("div");
+    const content1 = document.getElementById("ls-content");
+
+    const divParent = document.createElement("div");
     divParent.classList.add("ls-row");
 
-    let pChild = document.createElement("p");
+    const pChild = document.createElement("p");
     pChild.classList.add("ls-favourite");
-    pChild.textContent = el;
 
-    let copyButton = document.createElement("button");
+    const pChildText = document.createTextNode(el);
+    pChild.appendChild(pChildText);
+    console.log(pChild);
+
+    const copyButton = document.createElement("button");
     copyButton.classList.add("btn", "btn-copy");
-    copyButton.textContent = "Copy to Clipboard";
+    const textCopyButton = document.createTextNode("Copy to Clipboard");
+    copyButton.appendChild(textCopyButton);
 
-    let deleteButton = document.createElement("button");
+    const deleteButton = document.createElement("button");
     deleteButton.classList.add("btn", "btn-delete");
-    deleteButton.textContent = "Delete";
+    const textDeleteButton = document.createTextNode("Delete");
+    deleteButton.appendChild(textDeleteButton);
 
-    let li1 = content1.appendChild(divParent).appendChild(pChild);
-    li1.insertAdjacentElement("afterend", deleteButton);
-    li1.insertAdjacentElement("afterend", copyButton);
+    const li1 = content1.appendChild(divParent).appendChild(pChild);
+    divParent.appendChild(copyButton);
+    divParent.appendChild(deleteButton);
   });
   document.getElementById("link-box").value = "";
 }
